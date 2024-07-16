@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+    <div class="home">
+        
+        <form action="/submit" id="myForm" method="post">
+            <label for="latInput">Latitude:</label>
+            <input type="text" id="latInput" name="latitude">
+
+            <label for="lngInput">Longitude:</label>
+            <input type="text" id="lngInput" name="longitude">
+
+            
+            <input id="post" type="submit" value="Submit">
+        </form>
+
+
+        <% if (uv < 3) { %>
+            <h1>UV is low, sunscreen is not needed</h1>
+            <span class="badge green">Low: <%= uv %></span>
+        <% } else if (3 <= uv && uv < 6) { %>
+            <h1>UV is moderate, sunscreen may be needed.</h1>
+            <span class="badge yellow">Moderate: <%= uv %></span>
+        <% } else if (6 <= uv && uv < 8) { %>
+            <h1>UV is high, sunscreen is recommended</h1>
+            <span class="badge orange">High: <%= uv %></span>
+        <% } else if (8 <= uv && uv < 11 ) { %>
+            <h1>UV is very high, use sunscreen is highly recommended!</h1>
+            <span class="badge red">Very High: <%= uv %></span>
+        <% } %>
+
+        
+            
+            <div class="skin">
+                <span class="skin-color" style="background-color: #EDCFC7;"></span>
+                Type I skins will start to burn after <%= st1 %> minutes of exposure
+            </div>
+            
+            <div class="skin">
+                <span class="skin-color" style="background-color: #EAC2B0;"></span>
+                Type II skins will start to burn after <%= st2 %> minutes of exposure
+            </div>
+           
+            <div class="skin">
+                <span class="skin-color" style="background-color: #CC9A8B;"></span>
+                Type III skins will start to burn after <%= st3 %> minutes of exposure
+            </div>
+            
+            <div class="skin">
+                <span class="skin-color" style="background-color: #D19477;"></span>
+                Type IV skins will start to burn after <%= st4 %> minutes of exposure
+            </div>
+
+            <div class="skin">
+                <span class="skin-color" style="background-color: #C4926B;"></span>
+                Type V skins will start to burn after <%= st5 %> minutes of exposure
+            </div>
+
+            <div class="skin">
+                <span class="skin-color" style="background-color: #593010;"></span>
+                Type VI skins will start to burn after <%= st6 %> minutes of exposure
+            </div>
+        
+
+       
+    </div>
+
+    
+    
+</body>
+</html>
